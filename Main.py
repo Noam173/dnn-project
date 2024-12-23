@@ -11,7 +11,7 @@ def main():
     path=dp.create_directory()
     file='~/train_features.csv'
     dp.Split_Train(file)
-    model.create_model(64, 100)
+    
     
     
 if __name__=='__main__':
