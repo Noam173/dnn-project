@@ -29,7 +29,3 @@ def create_model(batch_size, num_epoch):
     x_val, y_val = tensor(x_val), tensor(y_val)
     
 
-
-    # Show the plots
-    plt.tight_layout()
-    plt.show()
