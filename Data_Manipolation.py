@@ -52,7 +52,6 @@ def Get_val():
     dir = create_directory()
     x_val = pd.read_csv(f'{dir}/Validation/x_val.csv')
     y_val = pd.read_csv(f'{dir}/Validation/y_val.csv')
-    y_val+=1
     return x_val, y_val
 
 def Get_test():
