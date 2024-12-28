@@ -23,8 +23,8 @@ def Split_Train(train_path):
     x = path.drop('label', axis=1) 
     y = path['label']
     del path
-    x_train, x_temp, y_train, y_temp = train_test_split(x, y, test_size=0.3,shuffle=True, random_state=42, stratify=y.to_numpy())
-    x_val, x_test, y_val, y_test = train_test_split(x_temp, y_temp, test_size=0.33,shuffle=True, random_state=42,stratify=y_temp.to_numpy())
+    x_train, x_temp, y_train, y_temp = train_test_split(x, y, test_size=0.3,shuffle=True, stratify=y.to_numpy())
+    x_val, x_test, y_val, y_test = train_test_split(x_temp, y_temp, test_size=0.33,shuffle=True,stratify=y_temp.to_numpy())
     del x_temp,y_temp
     to_pandas = lambda pd: pd.to_pandas()
     x_train, y_train = to_pandas(x_train), to_pandas(y_train)
