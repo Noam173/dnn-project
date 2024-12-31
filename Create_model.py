@@ -13,7 +13,6 @@ def create_model(batch_size, num_epoch):
     numpy = lambda np: np.to_numpy()
     tensor = lambda x: tf.convert_to_tensor(x, dtype=tf.float32)
 
-    # Load data
     x_train, y_train = dp.Get_train()
     x_val, y_val = dp.Get_val()
     x_test, y_test = dp.Get_test()
@@ -43,20 +42,19 @@ def create_model(batch_size, num_epoch):
 
     model.add(Dense(32, activation='relu'))
     
-    #model.add(Dense(16, activation='relu'))
 
     model.add(Dropout(0.5))
 
-    # Output layer
+
     model.add(Dense(1, activation='sigmoid'))
 
-    # Compile the model with a smaller learning rate
+
     model.compile(Adam(), loss='binary_crossentropy', metrics=['accuracy'])
 
     print("\n\nModel summary:")
-    print(model.summary())  # Print model summary
+    print(model.summary())  
     
-    # Training the model with early stopping
+
     hist = model.fit(x_train, y_train,
                      batch_size=batch_size,
                      epochs=num_epoch,
@@ -82,7 +80,7 @@ def plot_training_history(history,epochs,batch_size):
     plt.ylabel('Loss')
     plt.legend()
 
-    # Plotting the accuracy
+
     plt.subplot(1, 2, 2)
     plt.plot(history.history['accuracy'], label='Training Accuracy')
     plt.plot(history.history['val_accuracy'], label='Validation Accuracy')
@@ -91,7 +89,7 @@ def plot_training_history(history,epochs,batch_size):
     plt.ylabel('Accuracy')
     plt.legend()
 
-    # Show the plots
+
     plt.tight_layout()
     plt.show()
 
