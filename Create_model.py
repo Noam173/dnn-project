@@ -5,7 +5,6 @@ from keras.layers import Dense, Dropout, BatchNormalization
 from keras.callbacks import EarlyStopping
 from keras.optimizers import Adam
 import Data_Manipolation as dp
-from keras.regularizers import l2
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 
