@@ -9,6 +9,23 @@ from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 
 def create_model(batch_size, num_epoch):
+    '''
+    this function retrives and convert the already created train, val, and test 
+    files to tensor (for the model), than creates the model and uses the user's inputs for refrence.
+
+    Parameters
+    ----------
+    batch_size : int, x^2.
+        how many data samples to take in each batch, determent the length of each epoch.
+       
+    num_epoch : int.
+        how many epochs to train the model on.    
+
+    Returns
+    -------
+    None.
+
+    '''
     numpy = lambda np: np.to_numpy()
     tensor = lambda x: tf.convert_to_tensor(x, dtype=tf.float32)
 
@@ -61,6 +78,7 @@ def create_model(batch_size, num_epoch):
                      callbacks=[early_stopping])
     
     plot_training_history(hist,num_epoch,batch_size)
+    
     model.save('model.keras')
     
     loss, accuracy=model.evaluate(x_test ,y_test)
@@ -69,6 +87,23 @@ def create_model(batch_size, num_epoch):
 
 
 def plot_training_history(history,epochs,batch_size):
+    '''
+    
+
+    Parameters
+    ----------
+    history : object.
+        the model's results after training.
+    epochs : int.
+        takes the epochs's from the create_model function.
+    batch_size : int, x^2.
+        takes the batch size's from the create_model function.
+
+    Returns
+    -------
+    None.
+
+    '''
     plt.figure(figsize=(12, 6))
     plt.suptitle(f'Number of epochs: {epochs}, Batch size: {batch_size}')
     plt.subplot(1, 2, 1)
