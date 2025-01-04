@@ -5,9 +5,9 @@ Spyder Editor
 This is a temporary script file.
 """
 import shutil
-import Data_Manipolation
+import Data_Manipulation
 
-path=Data_Manipolation.create_directory()
+path=Data_Manipulation.create_directory()
 shutil.rmtree(f'{path}')
 
 
