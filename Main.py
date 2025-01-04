@@ -4,7 +4,7 @@ Spyder Editor
 
 This is a temporary script file.
 """
-import Data_Manipolation as dp
+import Data_Manipulation as dp
 import Create_model as model
 
 
