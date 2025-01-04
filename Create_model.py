@@ -4,7 +4,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, BatchNormalization
 from keras.callbacks import EarlyStopping
 from keras.optimizers import Adam
-import Data_Maniplation as dp
+import Data_Manipulation as dp
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 
