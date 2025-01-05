@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Jan  5 22:35:43 2025
+
+@author: noam
+"""
+import os
+import cudf as pd
+from sklearn.preprocessing import LabelEncoder
+def encoder(path):
+    encoder=LabelEncoder()
+    
+    path=os.path.expanduser(path)
+    
+    data=pd.read_csv(path)
+    if 'object' in data.dtypes.values:
+        data=data.drop(['sha256', 'md5', 'appeared', 'entry','Unnamed: 0.1', 'Unnamed: 0'], axis=1)
+        
+        categorial=data.select_dtypes(include=['object'])
+        numerical=data.select_dtypes(exclude=['object'])
+
+        del data
+        categorial=categorial.to_pandas()
+
+        for col in categorial.columns:
+            categorial[col] = encoder.fit_transform(categorial[col])
+
+        categorial=pd.DataFrame.from_pandas(categorial)
+
+        mixed=pd.concat([numerical,categorial], axis=1)
+        
+        path = os.path.splitext(path)[0]
+        new_path=f'{path}_clean.csv'
+        mixed.to_csv(new_path)
+    return new_path;
+
+

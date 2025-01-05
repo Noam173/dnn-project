@@ -38,7 +38,7 @@ def Split_Train(train_path):
     
     train_path=os.path.expanduser(train_path)
     path=pd.read_csv(train_path)
-    path=path.select_dtypes(exclude=['object'])
+    
     
     x = path.drop('label', axis=1) 
     y = path['label']
