@@ -22,10 +22,9 @@ def create_directory():
         os.mkdir(f'{path}/Test')
     return path;
 
+
 def Split_Train(train_path):
     '''
-    
-
     Parameters
     ----------
     train_path : string.
@@ -36,6 +35,7 @@ def Split_Train(train_path):
     None.
 
     '''
+    
     train_path=os.path.expanduser(train_path)
     path=pd.read_csv(train_path)
     path=path.select_dtypes(exclude=['object'])
