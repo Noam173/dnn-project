@@ -9,6 +9,21 @@ import os
 import cudf as pd
 from sklearn.preprocessing import LabelEncoder
 def encoder(path):
+    """
+    
+
+    Parameters
+    ----------
+    path : string
+        path to the location of the dataset file.
+
+    Returns
+    -------
+    string
+        return the new location of the encoded dataset.
+
+    """
+    
     encoder=LabelEncoder()
     
     path=os.path.expanduser(path)
