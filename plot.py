@@ -35,7 +35,7 @@ def plot_training_history(history, epochs, batch_size):
     plt.title('Loss during Training')
     plt.xlabel('Epoch')
     plt.ylabel('Loss')
-    plt.legend()
+    plt.legend(loc='lower right')
 
 
     plt.subplot(1, 2, 2)
@@ -44,7 +44,7 @@ def plot_training_history(history, epochs, batch_size):
     plt.title('Accuracy during Training')
     plt.xlabel('Epoch')
     plt.ylabel('Accuracy')
-    plt.legend()
+    plt.legend(loc='lower right')
 
 
     plt.tight_layout()
