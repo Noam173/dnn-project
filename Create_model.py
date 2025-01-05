@@ -58,6 +58,7 @@ def create_model(batch_size, num_epoch):
 
     model.add(Dense(32, activation='relu'))
     
+    model.add(Dense(32, activation='relu'))
 
     model.add(Dropout(0.5))
 
@@ -81,6 +82,6 @@ def create_model(batch_size, num_epoch):
     loss, accuracy=model.evaluate(x_test ,y_test)
     print(f"Test Accuracy: {accuracy:.2f}, {loss:.2f}")
     
-    return hist.history;
+    return hist.history,batch_size,num_epoch;
 
 

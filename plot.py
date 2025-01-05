@@ -7,7 +7,7 @@ Created on Sun Jan  5 09:34:55 2025
 
 import matplotlib.pyplot as plt
 
-def plot_training_history(history):
+def plot_training_history(history, epochs, batch_size):
     '''
     
 
@@ -27,7 +27,7 @@ def plot_training_history(history):
     '''
     
     plt.figure(figsize=(12, 6))
-    plt.suptitle(f'Number of epochs: {history['epochs']}, Batch size: {history['batch_size']}')
+    plt.suptitle(f'Number of epochs: {epochs}, Batch size: {batch_size}')
     
     plt.subplot(1, 2, 1)
     plt.plot(history['loss'], label='Training Loss')

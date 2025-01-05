@@ -13,8 +13,8 @@ def main():
     path = dp.create_directory()
     file='~/train_features.csv'
     dp.Split_Train(file)
-    hist = model.create_model(batch_size=32, num_epoch=20)
-    plt.plot_training_history(hist)
+    hist,batch_size,num_epoch = model.create_model(32, 20)
+    plt.plot_training_history(hist,batch_size,num_epoch)
 
     
 if __name__=='__main__':
