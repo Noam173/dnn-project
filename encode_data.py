@@ -48,6 +48,8 @@ def encoder(path):
         path = os.path.splitext(path)[0]
         new_path=f'{path}_clean.csv'
         mixed.to_csv(new_path)
-    return new_path;
+        return new_path;
+    else:
+        return path
 
 
