@@ -68,8 +68,6 @@ def create_model(batch_size, num_epoch):
 
     model.compile(Adam(), loss='binary_crossentropy', metrics=['accuracy'])
 
-    print("\n\nModel summary:")
-    print(model.summary())  
     
 
     hist = model.fit(x_train, y_train,
@@ -78,6 +76,19 @@ def create_model(batch_size, num_epoch):
                      validation_data=(x_val, y_val),
                      callbacks=[early_stopping])
     
+    
+    
+    
+    predictions = model.predict(x_test)
+    
+    predictions = (predictions > 0.5).astype("int32")
+
+    for index, predictions in enumerate(predictions):
+        print(f"Sample {index}: Predicted: {predictions[0]}, True: {y_test.numpy()[index]}")
+        
+    
+    print("\n\nModel summary:")
+    print(model.summary())      
     
     loss, accuracy=model.evaluate(x_test ,y_test)
     print(f"Test Accuracy: {accuracy:.2f}, {loss:.2f}")
