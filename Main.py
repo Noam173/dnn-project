@@ -15,10 +15,10 @@ def main():
     reset
     
     path = dp.create_directory()
-    file='~/train_features_full.csv'
+    file='~/train_features_11.csv'
     file=encode.encoder(file)
     dp.Split_Train(file)
-    hist,batch_size,num_epoch = model.create_model(128, 10)
+    hist,batch_size,num_epoch = model.create_model(32, 20)
     plt.plot_training_history(hist,batch_size,num_epoch)
     
     
