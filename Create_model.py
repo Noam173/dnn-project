@@ -1,7 +1,7 @@
 import tensorflow as tf
 import numpy as np
 from keras.models import Sequential
-from keras.layers import Dense, Dropout, BatchNormalization
+from keras.layers import Dense, Dropout
 from keras.callbacks import EarlyStopping
 from keras.optimizers import Adam
 import Data_Manipulation as dp
