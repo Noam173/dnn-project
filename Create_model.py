@@ -60,7 +60,7 @@ def create_model(batch_size, num_epoch):
     
     model.add(Dense(32, activation='relu'))
 
-    model.add(Dropout(0.5))
+    model.add(Dropout(0.3))
 
 
     model.add(Dense(1, activation='sigmoid'))
