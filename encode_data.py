@@ -29,8 +29,11 @@ def encoder(path):
     path=os.path.expanduser(path)
     
     data=pd.read_csv(path)
+    
+    data = data[data['label'] != -1]
+            
     if 'object' in data.dtypes.values:
-        data=data.drop(['sha256', 'md5', 'appeared', 'entry','Unnamed: 0.1', 'Unnamed: 0'], axis=1)
+        data=data.drop(['sha256', 'md5', 'appeared', 'entry', 'Unnamed: 0'], axis=1)
         
         categorial=data.select_dtypes(include=['object'])
         numerical=data.select_dtypes(exclude=['object'])
