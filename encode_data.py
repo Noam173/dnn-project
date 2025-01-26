@@ -41,8 +41,8 @@ def encoder(path):
         del data
         categorial=categorial.to_pandas()
 
-        for col in categorial.columns:
-            categorial[col] = encoder.fit_transform(categorial[col])
+        for x in categorial.columns:
+            categorial[x] = encoder.fit_transform(categorial[x])
 
         categorial=pd.DataFrame.from_pandas(categorial)
 
