@@ -28,7 +28,7 @@ def encoder(path):
     
     path=os.path.expanduser(path)
     
-    data=pd.read_csv(path, dtype={'label': int})
+    data=pd.read_csv(path)
     
     data = data[data['label'] != -1]
             
