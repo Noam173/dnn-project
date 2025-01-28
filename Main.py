@@ -18,8 +18,10 @@ def main():
     file='~/train_features.csv'
     file=encode.encoder(file)
     dp.Split_Train(file)
-    hist,batch_size,num_epoch = model(32, 50)
-    plt(hist,batch_size,num_epoch)
+    x={128, 64, 32, 16, 8}
+    for num_epochs in x:
+        hist,batch_size,num_epoch = model(num_epochs, 50)
+        plt(hist,batch_size,num_epoch)
     
     
 if __name__=='__main__':
