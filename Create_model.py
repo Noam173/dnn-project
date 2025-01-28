@@ -77,14 +77,6 @@ def create_model(batch_size, num_epoch):
                      callbacks=[early_stopping])
     
     
-    
-    
-    predictions = model.predict(x_test)
-    
-    predictions = (predictions > 0.5).astype("int32")
-
-    for index, predictions in enumerate(predictions):
-        print(f"Sample {index}: Predicted: {predictions[0]}, True: {y_test.numpy()[index]}")
         
     
     print("\n\nModel summary:")
