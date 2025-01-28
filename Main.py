@@ -15,7 +15,7 @@ def main():
     reset
     
     path = dp.create_directory()
-    file='~/train_features_11.csv'
+    file='~/train_features.csv'
     file=encode.encoder(file)
     dp.Split_Train(file)
     hist,batch_size,num_epoch = model.create_model(32, 20)

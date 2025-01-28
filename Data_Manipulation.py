@@ -1,5 +1,5 @@
 import os
-import cudf as pd
+import pandas as pd
 from sklearn.model_selection import train_test_split
 
 
@@ -39,17 +39,13 @@ def Split_Train(train_path):
     train_path=os.path.expanduser(train_path)
     path=pd.read_csv(train_path)
     
-    
     x = path.drop('label', axis=1) 
     y = path['label']
     del path
     x_train, x_temp, y_train, y_temp = train_test_split(x, y, test_size=0.3,shuffle=True, stratify=y.to_numpy())
     x_val, x_test, y_val, y_test = train_test_split(x_temp, y_temp, test_size=0.33,shuffle=True,stratify=y_temp.to_numpy())
     del x_temp,y_temp
-    to_pandas = lambda pd: pd.to_pandas()
-    x_train, y_train = to_pandas(x_train), to_pandas(y_train)
-    x_val,y_val=to_pandas(x_val), to_pandas(y_val)
-    x_test,y_test=to_pandas(x_test), to_pandas(y_test)
+    
     if not os.path.exists(f'{create_directory()}/Train/x_train.csv' or f'{create_directory()}/Train/y_train.csv'):
         x_train.to_csv(f'{create_directory()}/Train/x_train.csv',index=False)
         y_train.to_csv(f'{create_directory()}/Train/y_train.csv',index=False)
@@ -60,6 +56,7 @@ def Split_Train(train_path):
         x_test.to_csv(f'{create_directory()}/Test/x_test.csv',index=False)
         y_test.to_csv(f'{create_directory()}/Test/y_test.csv',index=False)
     print(f'{create_directory()}, suDir: Train, Validation, Test')
+    
     
     
 def Get_train():
