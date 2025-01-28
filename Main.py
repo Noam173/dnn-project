@@ -5,8 +5,8 @@ Spyder Editor
 This is a temporary script file.
 """
 import Data_Manipulation as dp
-import Create_model as model
-import plot as plt
+from Create_model import create_model as model
+from plot import plot_training_history as plt
 import encode_data as encode
 import Reset_data as reset
 
@@ -18,8 +18,8 @@ def main():
     file='~/train_features.csv'
     file=encode.encoder(file)
     dp.Split_Train(file)
-    hist,batch_size,num_epoch = model.create_model(32, 20)
-    plt.plot_training_history(hist,batch_size,num_epoch)
+    hist,batch_size,num_epoch = model(32, 50)
+    plt(hist,batch_size,num_epoch)
     
     
 if __name__=='__main__':
