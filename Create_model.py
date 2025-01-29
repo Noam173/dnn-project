@@ -1,5 +1,4 @@
 import tensorflow as tf
-import numpy as np
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.callbacks import EarlyStopping
@@ -26,21 +25,16 @@ def create_model(batch_size, num_epoch):
     None.
 
     '''
-    numpy = lambda np: np.to_numpy()
     tensor = lambda x: tf.convert_to_tensor(x, dtype=tf.float32)
 
     x_train, y_train = dp.Get_train()
     x_val, y_val = dp.Get_val()
     x_test, y_test = dp.Get_test()
-
-    x_train, y_train = numpy(x_train), numpy(y_train)
-    x_val, y_val = numpy(x_val), numpy(y_val)
-    x_test, y_test = numpy(x_test), numpy(y_test)
    
     scaler = StandardScaler()
-    x_train = scaler.fit_transform(x_train)
-    x_val = scaler.transform(x_val)
-    x_test = scaler.transform(x_test)
+    x_train = scaler.fit_transform(x_train.values)
+    x_val = scaler.transform(x_val.values)
+    x_test = scaler.transform(x_test.values)
 
     x_train, y_train = tensor(x_train), tensor(y_train)
     x_val, y_val = tensor(x_val), tensor(y_val)
