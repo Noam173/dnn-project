@@ -1,52 +1,16 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jan  5 09:34:55 2025
-
-@author: Student
-"""
-
+import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 
-def plot_training_history(history, epochs, batch_size):
-    '''
-    
+def plot_training(history):
 
-    Parameters
-    ----------
-    history : object.
-        the model's results after training.
-    epochs : int.
-        takes the epochs's from the create_model function.
-    batch_size : int, x^2.
-        takes the batch size's from the create_model function.
+    data=pd.DataFrame.from_dict(history)
+    data['epochs']=data.index+1
 
-    Returns
-    -------
-    None.
-
-    '''
-    
-    plt.figure(figsize=(12, 6))
-    plt.suptitle(f'Number of epochs: {epochs}, Batch size: {batch_size}')
-    
-    plt.subplot(1, 2, 1)
-    plt.plot(history['loss'], label='Training Loss')
-    plt.plot(history['val_loss'], label='Validation Loss')
-    plt.title('Loss during Training')
-    plt.xlabel('Epoch')
-    plt.ylabel('Loss')
-    plt.legend(loc='lower right')
-
-
-    plt.subplot(1, 2, 2)
-    plt.plot(history['accuracy'], label='Training Accuracy')
-    plt.plot(history['val_accuracy'], label='Validation Accuracy')
-    plt.title('Accuracy during Training')
-    plt.xlabel('Epoch')
-    plt.ylabel('Accuracy')
-    plt.legend(loc='lower right')
-
-
-    plt.tight_layout()
+    sns.lineplot(x='epochs', y='accuracy', data=data, label='Train accuracy')
+    sns.lineplot(x='epochs', y='val_accuracy',  data=data, label='Val accuracy')
     plt.show()
-
+    
+    sns.lineplot(x='epochs', y='loss', data=data, label='Train loss')
+    sns.lineplot(x='epochs', y='val_loss', data=data, label='Val loss')
+    plt.show()
