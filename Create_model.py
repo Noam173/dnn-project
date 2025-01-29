@@ -15,7 +15,7 @@ def create_model(batch_size, num_epoch):
 
     Parameters
     ----------
-    batch_size : int, x^2.
+    batch_size : int.
         how many data samples to take in each batch, determent the length of each epoch.
        
     num_epoch : int.
