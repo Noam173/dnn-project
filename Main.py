@@ -19,11 +19,11 @@ def main():
     file=encode.encoder(file)
     dp.Split_Train(file)
     
-    hist, = model(128, 50)
-    plt(hist)
-
-    hist, = model(32, 50)
-    plt(hist)
+    x={128, 32}
+    
+    for batchs in x:
+        hist = model(batchs, 50)
+        plt(hist)
     
     
 if __name__=='__main__':
