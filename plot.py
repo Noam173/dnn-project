@@ -5,12 +5,12 @@ import seaborn as sns
 def plot_training(history):
 
     data=pd.DataFrame.from_dict(history)
-    data['epochs']=data.index+1
+    data.index=data.index+1
 
-    sns.lineplot(x='epochs', y='accuracy', data=data, label='Train accuracy')
-    sns.lineplot(x='epochs', y='val_accuracy',  data=data, label='Val accuracy')
+    sns.lineplot(x=data.index, y=data.accuracy, label='Train accuracy')
+    sns.lineplot(x=data.index, y=data.val_accuracy, label='Val accuracy')
     plt.show()
     
-    sns.lineplot(x='epochs', y='loss', data=data, label='Train loss')
-    sns.lineplot(x='epochs', y='val_loss', data=data, label='Val loss')
+    sns.lineplot(x=data.index, y=data.loss, label='Train loss')
+    sns.lineplot(x=data.index, y=data.val_loss, label='Val loss')
     plt.show()
