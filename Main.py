@@ -23,7 +23,7 @@ def main():
     
     for batchs in x:
         hist = model(batchs, 50)
-        plt(hist)
+        plt(hist, batchs)
     
     
 if __name__=='__main__':
