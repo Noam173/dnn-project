@@ -1,6 +1,6 @@
 import tensorflow as tf
 from keras.models import Sequential
-from keras.layers import Dense, Dropout
+from keras.layers import Dense, Dropout, Input
 from keras.callbacks import EarlyStopping
 from keras.optimizers import Adam
 import Data_Manipulation as dp
@@ -45,7 +45,9 @@ def create_model(batch_size, num_epoch):
                                    verbose=1)
     
     model = Sequential()
-    model.add(Dense(128, activation='relu',input_shape=(x_train.shape[1],)))
+    model.add(Input(shape=(x_train.shape[1],)))  
+    
+    model.add(Dense(128, activation='relu'))    
 
     model.add(Dense(64, activation='relu'))
 
