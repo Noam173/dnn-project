@@ -1,2 +1,1 @@
-# This is the source code for the project
- 
+⚠️ Notice: This is an abandoned project. It is unfinished and has not been actively maintained. 
